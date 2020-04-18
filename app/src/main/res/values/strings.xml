@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Covid19</string>
+    <string name="app_title">Covid-19 Stats</string>
 </resources>
