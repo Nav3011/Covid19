@@ -29,7 +29,6 @@ public class SplashScreenActivity extends Activity {
                 else
                     i =new Intent(SplashScreenActivity.this, NoConnectionActivity.class);
                 startActivity(i);
-                finish();
             }
         },SPLASH_TIME);
     }
