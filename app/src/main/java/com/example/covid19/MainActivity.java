@@ -2,37 +2,55 @@ package com.example.covid19;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
-
+//import androidx.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
+import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
+    Toolbar toolbar;
+    TabLayout tabLayout;
+    ViewPager viewPager;
+    PageAdapter pageAdapter;
+    TabItem tabGlobal, tabIndia;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.toolbar);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout);
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
-        tabLayout.setupWithViewPager(viewPager);
-        tabLayout.addTab(tabLayout.newTab().setText("Global"));
-        tabLayout.addTab(tabLayout.newTab().setText("India"));
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-        tabLayout.setTabTextColors(R.color.white, R.color.white);
-        final MyAdapter adapter = new MyAdapter(this,getSupportFragmentManager(), tabLayout.getTabCount());
-        viewPager.setAdapter(adapter);
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
+        tabLayout = findViewById(R.id.tabLayout);
+        tabGlobal = findViewById(R.id.tabglobal);
+        tabIndia = findViewById(R.id.tabindia);
+        viewPager = findViewById(R.id.viewpager);
+        pageAdapter = new PageAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
+        viewPager.setAdapter(pageAdapter);
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
+                if (tab.getPosition() == 1) {
+                    toolbar.setBackgroundColor(ContextCompat.getColor(MainActivity.this,R.color.colorPrimary));
+                    tabLayout.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.colorPrimary));
+                    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        getWindow().setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.colorPrimary));
+                    }
+                }
+                else {
+                    toolbar.setBackgroundColor(ContextCompat.getColor(MainActivity.this,R.color.colorPrimary));
+                    tabLayout.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.colorPrimary));
+                    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        getWindow().setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.colorPrimary));
+                    }
+                }
             }
 
             @Override
@@ -45,6 +63,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
     }
 }

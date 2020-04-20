@@ -1,31 +1,17 @@
 package com.example.covid19;
 
-import android.content.Context;
-
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-public class MyAdapter extends FragmentPagerAdapter {
+public class PageAdapter extends FragmentPagerAdapter {
 
-    private Context myContext;
-    int totalTabs;
-    String title[] = {"GLOBAL", "INDIA"};
-
-    public MyAdapter(Context context, FragmentManager fm, int totalTabs) {
+    private int numOfTabs;
+    PageAdapter(FragmentManager fm, int numOfTabs) {
         super(fm);
-        myContext = context;
-        this.totalTabs = totalTabs;
+        this.numOfTabs = numOfTabs;
     }
 
-    @Nullable
-    @Override
-    public CharSequence getPageTitle(int position) {
-        return title[position];
-    }
-
-    // this is for fragment tabs
     @Override
     public Fragment getItem(int position) {
         switch (position) {
@@ -39,9 +25,8 @@ public class MyAdapter extends FragmentPagerAdapter {
                 return null;
         }
     }
-    // this counts total number of tabs
     @Override
     public int getCount() {
-        return totalTabs;
+        return numOfTabs;
     }
 }
