@@ -24,10 +24,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Statistics stats = new Statistics(getApplicationContext());
-
-
-
         toolbar = findViewById(R.id.toolbar);;
         setSupportActionBar(toolbar);
         tabLayout = findViewById(R.id.tabLayout);
