@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+
 public class IndiaFragment extends Fragment {
 
 
@@ -27,6 +29,10 @@ public class IndiaFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_india, container, false);
         String [] values =
                 {"Time at Residence","Under 6 months","6-12 months","1-2 years","2-4 years","4-8 years","8-15 years","Over 15 years","Time at Residence","Under 6 months","6-12 months","1-2 years","2-4 years","4-8 years","8-15 years","Over 15 years","Time at Residence","Under 6 months","6-12 months","1-2 years","2-4 years","4-8 years","8-15 years","Over 15 years"};
+        Statistics stats = new Statistics(getActivity());
+        stats.generate_stats();
+        Log.d("STATES",stats.stateCodes.toString());
+//        ArrayList<String> values= stats.stateCodes;
         Spinner spinner = (Spinner) v.findViewById(R.id.spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), R.layout.spinner_item, values);
         adapter.setDropDownViewResource(R.layout.spinner_line);

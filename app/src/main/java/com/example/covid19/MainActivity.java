@@ -1,10 +1,7 @@
 package com.example.covid19;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Build;
@@ -21,13 +18,15 @@ public class MainActivity extends AppCompatActivity {
     ViewPager viewPager;
     PageAdapter pageAdapter;
     TabItem tabGlobal, tabIndia;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         Statistics stats = new Statistics(getApplicationContext());
-        stats.generate_stats();
+
+
 
         toolbar = findViewById(R.id.toolbar);;
         setSupportActionBar(toolbar);
@@ -69,4 +68,6 @@ public class MainActivity extends AppCompatActivity {
         });
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
     }
+
+
 }

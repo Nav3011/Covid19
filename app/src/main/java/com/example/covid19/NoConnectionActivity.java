@@ -23,7 +23,7 @@ public class NoConnectionActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Connection.isConnected(getApplicationContext()))
+                if(ConnectionCheck.isConnected(getApplicationContext()))
                     CONNECTED=1;
                 else
                     CONNECTED=0;

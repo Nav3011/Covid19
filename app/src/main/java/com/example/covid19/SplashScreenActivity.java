@@ -15,7 +15,7 @@ public class SplashScreenActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        if(Connection.isConnected(this))
+        if(ConnectionCheck.isConnected(this))
             CONNECTED=1;
         else
             CONNECTED=0;
