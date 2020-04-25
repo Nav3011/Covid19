@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -19,16 +20,13 @@ import com.android.volley.toolbox.StringRequest;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class IndiaFragment extends Fragment {
 
-
-    public IndiaFragment() {
-        // Required empty public constructor
-    }
     List<String> stateCodes = new ArrayList<String>();
     List<String> state = new ArrayList<String>();
     List<String> active = new ArrayList<String>();
@@ -39,11 +37,16 @@ public class IndiaFragment extends Fragment {
     List<String> deltaD = new ArrayList<String>();
     List<String> deltaR = new ArrayList<String>();
     List<String> time = new ArrayList<String>();
+
+    public IndiaFragment() {
+        // Required empty public constructor
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_india, container, false);
+
 
 //        final TextView stats = (TextView) v.findViewById(R.id.stats);
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), R.layout.spinner_default_item, state);
@@ -89,7 +92,16 @@ public class IndiaFragment extends Fragment {
         );
         VolleySingleton.getInstance(getActivity()).addToRequestQueue(stringRequest);
         Spinner spinner = (Spinner) v.findViewById(R.id.spinner);
-
+        final TextView stateName, update_time, total_count, active_count, active_delta, recover_count, recover_delta, death_count, death_delta;
+        stateName = (TextView) v.findViewById(R.id.stateName);
+        update_time = (TextView) v.findViewById(R.id.update_time);
+        total_count = (TextView) v.findViewById(R.id.total_count);
+        active_count = (TextView) v.findViewById(R.id.active_count);
+        active_delta = (TextView) v.findViewById(R.id.active_delta);
+        recover_count = (TextView) v.findViewById(R.id.recover_count);
+        recover_delta = (TextView) v.findViewById(R.id.recover_delta);
+        death_count = (TextView) v.findViewById(R.id.death_count);
+        death_delta = (TextView) v.findViewById(R.id.death_delta);
 
 //        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), R.layout.spinner_default_item, state);
         adapter.setDropDownViewResource(R.layout.spinner_item_list_view);
@@ -102,6 +114,15 @@ public class IndiaFragment extends Fragment {
 //                ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
 //                Toast.makeText(getActivity(), parent.getItemAtPosition(position).toString(),Toast.LENGTH_LONG);
 //                stats.setText("Active : "+active.get(position));
+                stateName.setText(state.get(position));
+                update_time.setText("Updated at "+time.get(position).toString());
+                total_count.setText(confirmed.get(position).toString());
+                active_count.setText(active.get(position).toString());
+                active_delta.setText("+"+deltaC.get(position).toString());
+                recover_count.setText(recovered.get(position).toString());
+                recover_delta.setText("+"+deltaR.get(position).toString());
+                death_count.setText(deaths.get(position).toString());
+                death_delta.setText("+"+deltaD.get(position).toString());
             }
 
             @Override

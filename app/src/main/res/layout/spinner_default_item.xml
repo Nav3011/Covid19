@@ -8,5 +8,5 @@
     android:background="@color/spinner"
     android:textAlignment="center"
     android:gravity="center_vertical"
-    android:fontFamily="@font/roboto_regular"
+    android:fontFamily="@font/nunitosansbold"
     android:textColor="@color/colorPrimary"/>

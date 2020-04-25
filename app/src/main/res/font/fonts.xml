@@ -18,4 +18,12 @@
         android:font="@font/roboto_italic"
         android:fontStyle="italic"
         android:fontWeight="400"/>
+    <font
+        android:font="@font/nunitosanssb"
+        android:fontStyle="normal"
+        android:fontWeight="400"/>
+    <font
+        android:font="@font/nunitosansbold"
+        android:fontStyle="normal"
+        android:fontWeight="700"/>
 </font-family>
