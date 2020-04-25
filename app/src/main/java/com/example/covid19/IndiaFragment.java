@@ -1,6 +1,5 @@
 package com.example.covid19;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,8 +8,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -24,7 +21,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class IndiaFragment extends Fragment {
@@ -50,7 +46,7 @@ public class IndiaFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_india, container, false);
 
 //        final TextView stats = (TextView) v.findViewById(R.id.stats);
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), R.layout.spinner_item, state);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), R.layout.spinner_default_item, state);
 
         String mUrlString = "https://api.covid19india.org/data.json";
         StringRequest stringRequest = new StringRequest(
@@ -95,8 +91,8 @@ public class IndiaFragment extends Fragment {
         Spinner spinner = (Spinner) v.findViewById(R.id.spinner);
 
 
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), R.layout.spinner_item, state);
-        adapter.setDropDownViewResource(R.layout.spinner_line);
+//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), R.layout.spinner_default_item, state);
+        adapter.setDropDownViewResource(R.layout.spinner_item_list_view);
         spinner.setAdapter(adapter);
         spinner.setVisibility(View.VISIBLE);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
