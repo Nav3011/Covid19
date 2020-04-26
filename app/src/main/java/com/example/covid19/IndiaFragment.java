@@ -90,6 +90,7 @@ public class IndiaFragment extends Fragment {
                     }
                 }
         );
+
         VolleySingleton.getInstance(getActivity()).addToRequestQueue(stringRequest);
         Spinner spinner = (Spinner) v.findViewById(R.id.spinner);
         final TextView stateName, update_time, total_count, active_count, active_delta, recover_count, recover_delta, death_count, death_delta;

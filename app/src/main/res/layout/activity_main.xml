@@ -11,7 +11,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:background="@color/toolbar"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
@@ -25,7 +25,7 @@
             android:gravity="center"
             android:text="COVID-19 STATS"
             android:fontFamily="@font/nunitosansbold"
-            android:textSize="20sp"
+            android:textSize="28sp"
             android:id="@+id/toolbar_text"/>
     </androidx.appcompat.widget.Toolbar>
 
@@ -36,6 +36,7 @@
         app:tabBackground="@drawable/tabbackground"
         app:tabIndicatorColor="@color/colorPrimary"
         app:tabIndicatorHeight="2dp"
+        app:tabTextAppearance="@font/nunitosansbold"
         app:tabSelectedTextColor="@color/colorPrimary"
         app:tabTextColor="@color/colorPrimary">
 

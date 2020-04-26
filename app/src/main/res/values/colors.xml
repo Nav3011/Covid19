@@ -3,8 +3,8 @@
     <color name="colorPrimary">#000000</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#000000</color>
-    <color name="tab_selected">#8FABDD</color>
-    <color name="tab_unselected">#FEAFC4</color>
+    <color name="tab_selected">#ffecc7</color>
+    <color name="tab_unselected">#ffecc7</color>
     <color name="white">#FFFFFF</color>
     <color name="red">#FF0000</color>
     <color name="toolbar">#001067</color>

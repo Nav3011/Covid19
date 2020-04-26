@@ -6,6 +6,7 @@
     android:textSize="20sp"
     android:gravity="left"
     android:paddingLeft="10dp"
-    android:fontFamily="@font/nunitosansbold"
+    android:textAllCaps="true"
+    android:fontFamily="@font/nunitosanssb"
     android:textColor="@color/colorPrimary"
     android:padding="4dp"/>

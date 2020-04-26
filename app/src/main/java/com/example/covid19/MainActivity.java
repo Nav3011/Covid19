@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.widget.TextView;
 
 import androidx.appcompat.widget.Toolbar;
 import com.google.android.material.tabs.TabItem;
@@ -32,6 +35,14 @@ public class MainActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.viewpager);
         pageAdapter = new PageAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(pageAdapter);
+//        Typeface typeface = getResources().getFont(R.font.myfont);
+//        textView.setTypeface(typeface);
+        for (int i = 0; i < tabLayout.getTabCount(); i++) {
+            //noinspection ConstantConditions
+            TextView tv = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab,null);
+//            tv.setTypeface(Typeface);
+            tabLayout.getTabAt(i).setCustomView(tv);
+        }
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
